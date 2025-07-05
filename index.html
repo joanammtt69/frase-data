@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      overflow: hidden; /* remove a barra de rolagem */
+      height: 100%;
       font-family: sans-serif;
       text-align: center;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .frase {
       font-weight: bold;
@@ -14,11 +22,13 @@
       background: linear-gradient(to right, #f9d29d, #f28c8c);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin: 0; /* elimina qualquer margem */
     }
   </style>
 </head>
 <body>
   <p class="frase" id="frase-dinamica">Carregando...</p>
+
   <script>
     (function() {
       const hoje = new Date();
