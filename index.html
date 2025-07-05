@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .frase {
+      font-weight: bold;
+      font-size: 18px;
+      background: linear-gradient(to right, #f9d29d, #f28c8c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <p class="frase" id="frase-dinamica">Carregando...</p>
+  <script>
+    (function() {
+      const hoje = new Date();
+      const futura = new Date();
+      futura.setDate(hoje.getDate() + 30);
+
+      const opcoes = { day: 'numeric', month: 'long' };
+      let dataFormatada = futura.toLocaleDateString('pt-BR', opcoes);
+      dataFormatada = dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1);
+
+      document.getElementById('frase-dinamica').innerText =
+        `Pele sem rugas em ${dataFormatada}`;
+    })();
+  </script>
+</body>
+</html>
